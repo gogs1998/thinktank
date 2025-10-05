@@ -1,0 +1,1 @@
+You can move planner/segment prompts here if you want to externalize them. Current code uses inline prompts.
