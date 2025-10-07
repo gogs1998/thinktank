@@ -22,7 +22,11 @@ export async function POST(req: NextRequest) {
   const name = file.name || "document.txt";
   const buf = Buffer.from(await file.arrayBuffer());
   let text = "";
+  const disablePdf = (process.env.DISABLE_PDF || "").toLowerCase() === "true";
   if (name.toLowerCase().endsWith(".pdf")) {
+    if (disablePdf) {
+      return Response.json({ error: "PDF parsing disabled on this deployment" }, { status: 400 });
+    }
     try {
       const parsed = await pdfParse(buf);
       text = parsed.text || "";

@@ -6,25 +6,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cf:build": "npx @cloudflare/next-on-pages",
+    "cf:deploy": "npx wrangler pages deploy .vercel/output/static --project-name thinktank",
+    "cf:preview": "npx wrangler pages dev .vercel/output/static --compatibility-date=2024-06-20"
   },
   "dependencies": {
-    "next": "14.2.5",
+    "clsx": "^2.1.1",
+    "next": "15.0.0",
+    "openai": "^4.58.1",
+    "pdf-parse": "^1.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "openai": "^4.58.1",
-    "zod": "^3.23.8",
     "uuid": "^9.0.1",
-    "clsx": "^2.1.1",
-    "pdf-parse": "^1.1.1"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
-    "@types/node": "^22.5.4",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0"
+    "wrangler": "^4.42.0"
   }
 }
